@@ -23,28 +23,11 @@ export default function TodoList() {
     }
         return(
             <>
-                    <div className="todo-responsive">
-                        <button onClick={()=>handleSelectedTodo({id:"",task:""})} className="btn btn-success m-4">
-                            <IconPlus size={22}/>
-                            Insert New Todo
-                        </button>                        
-                        <table className="todo">
-                            <thead>
-                                <tr>
-                                    <th style={{color:"#bccbd2"}}>No</th>
-                                    <th>ID</th>
-                                    <th>Todo Name</th>
-                                    {/* <th>Status</th> */}
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {todos.map((todo,idx)=>{
+                    <div className="d-flex flex-column justify-comtent-center table-responsive w-75 align-items-center">
+                                {todos.map((todo)=>{
                                 return(
-                                    <tr key={idx}>
-                                        <td style={{color:"#bccbd2"}}>{++idx}</td>
-                                        <td>{todo.id}</td>
-                                        <td>{todo.task}</td>
+                                    <div className="d-flex gap-5" key={todo.id}>
+                                        <p>{todo.task}</p>
                                         {/* <td>
                                             <span className={`badge text-white ${
                                                 todo.status ? "text-bg-danger" : "text-bg-success"
@@ -52,7 +35,6 @@ export default function TodoList() {
                                                 {todo.status ? "Reserved":"Empty"}
                                             </span>
                                         </td> */}
-                                        <td>
                                             <div className="d-flex gap-2">
                                                 <button onClick={()=>handleSelectedTodo(todo)} className="btn btn-success">
                                                     <IconEdit size={22}/>
@@ -61,12 +43,9 @@ export default function TodoList() {
                                                     <IconTrash size={22}/>
                                                 </button>
                                             </div>
-                                        </td>
-                                    </tr>
+                                    </div>
                                 )
                             })}
-                            </tbody>
-                        </table>
                     </div>
 
             </>

@@ -10,7 +10,7 @@ function TodoService() {
                 }else {
                     reject("failed to add")
                 }
-            }, 3000);
+            }, 2000);
         })
     }
 
@@ -22,7 +22,7 @@ function TodoService() {
                 }else {
                     reject("failed to fetch")
                 }
-            }, 4000);
+            }, 1500);
         })
 
     }
@@ -41,7 +41,7 @@ function TodoService() {
                 }else {
                     reject("failed to update")
                 }
-            }, 3000);
+            }, 1500);
         })
     }
 

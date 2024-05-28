@@ -55,12 +55,8 @@ export default function TodoForm() {
     return(
             <>
                 <form autoComplete="off" onSubmit={handleSubmit(onSubmit)} className="shadow-sm p-4 rounded-2 bg-white bg-opacity-75">
-                    <h3>Form Todo</h3>
                     <div className="mb-3">
-                        <label htmlFor="task" className="form-label">
-                            Task
-                        </label>
-                        <input {...register("task")}  type="text" className={`form-control ${errors.task &&"is-invalid"}`} id="task" name="task"/>
+                        <input {...register("task")} placeholder="what's your plan?" type="text" className={`form-control ${errors.task &&"is-invalid"}`} id="task" name="task"/>
                         {errors.task && <div className="invalid-feedback">{errors.task.message}</div>}
 
                     </div>

@@ -7,9 +7,7 @@ import Todo from './components/Todo/Todo'
 function App() {
 
   return (
-      <div className='d-flex flex-column justify-content-center align-self-center'>
         <Todo />
-      </div>
   )
 }
 
