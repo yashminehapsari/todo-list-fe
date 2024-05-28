@@ -9,6 +9,7 @@ import {zodResolver} from "@hookform/resolvers/zod";
 const schema =z.object({
     id: z.string().nullable(),
     task: z.string().min(1,"task can not be blank"),
+    checked: z.boolean()
 })
 
 export default function TodoForm() {
@@ -18,6 +19,7 @@ export default function TodoForm() {
         reset,
         formState: {errors},
     }=useForm({
+        defaultValues:{ id:"", task: "", checked:false },
         mode: "onChange",
         resolver:zodResolver(schema),
         
@@ -42,6 +44,7 @@ export default function TodoForm() {
             const todo ={
                 ...form,
                 id: new Date().getMilliseconds().toString(),
+                checked: false,
             };
             dispatch(postTodoAction(todo));      
         }
@@ -49,7 +52,7 @@ export default function TodoForm() {
     }
 
     const handleReset = () =>{
-        reset({ id:"", task: "" })
+        reset({ id:"", task: "", checked:false })
     }
 
     return(
